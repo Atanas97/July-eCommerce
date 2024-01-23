@@ -10,7 +10,7 @@ const BestSellers = ({ title }) => {
     );
     const MappedData = useMemo(() => {
         return apiData.map((item) => <Card data={item} key={item.id} />);
-    }, []);
+    }, [apiData]);
     console.log(MappedData);
 
     return (
