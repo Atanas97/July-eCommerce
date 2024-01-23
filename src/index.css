@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    svg.success path:first-child {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: okDash 5s linear forwards;
+    }
+
+    svg.success path:last-child {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: okDash 5s linear forwards;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes okDash {
+        from {
+            stroke-dashoffset: 1000;
+        }
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    label.checkbox {
+        padding: 5px 20px 5px 30px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        vertical-align: bottom;
+        display: inline-flex;
+        align-items: center;
+        line-height: initial;
+        font-weight: 300;
+    }
+
+    label.checkbox input {
+        display: none;
+    }
+
+    label.checkbox span {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        content: " ";
+        vertical-align: top;
+        margin-right: 6px;
+        margin-left: -30px;
+    }
+
+    label.checkbox:not(.disabled):hover span {
+        border-color: #c8815f;
+    }
+
+    label.checkbox input:checked + span {
+        position: relative;
+        background-color: #c8815f;
+        border-color: #c8815f;
+    }
+
+    label.checkbox input:checked + span::before {
+        position: absolute;
+        display: block;
+        content: " ";
+        border-bottom: 2px solid #fff;
+        border-right: 2px solid #fff;
+        width: 4px;
+        height: 8px;
+        top: 3px;
+        left: 6px;
+        transform: rotate(45deg);
+    }
+
+    label.checkbox.disabled {
+        color: #ccc;
+    }
+
+    label.checkbox.disabled input:checked + span {
+        background-color: #ccc;
+        border-color: #ccc;
+    }
+
+    label.checkbox.disabled:hover {
+        cursor: not-allowed;
+    }
+}
