@@ -16,6 +16,8 @@ const NewsletterPopup = () => {
             console.log(popUpCheckbox.current.checked);
             localStorage.setItem("isPopSeen", true);
             setIsModalOpened(false);
+        } else {
+            setIsModalOpened(false);
         }
     };
 

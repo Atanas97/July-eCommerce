@@ -16,7 +16,7 @@ const Card = ({ data }) => {
 
     return (
         <>
-            <div className="group">
+            <div className="group [&>*]:overflow-hidden">
                 <div className="relative">
                     <Link to={`/products/${category}/${title}/${id}`}>
                         <picture className="w-[25rem] mx-auto flex justify-center aspect-square">

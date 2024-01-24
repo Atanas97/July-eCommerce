@@ -15,8 +15,7 @@ const StoreLocator = () => {
         <>
             <Helmet>
                 <title>
-                    Find Your Nearest July Clothing Boutique: Locate Exclusive
-                    Fashion in Your Area
+                    Find Your Nearest July Clothing Boutique: Locate Exclusive Fashion in Your Area
                 </title>
                 <meta
                     name="description"
@@ -37,7 +36,7 @@ const StoreLocator = () => {
                 bannerTextColor="text-white"
             ></PageBanner>
             <Section>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 my-20">
+                <div className="grid place-items-center grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20 my-20">
                     <div className="flex flex-col gap-6 max-w-[54rem]">
                         <picture>
                             <img
@@ -49,22 +48,17 @@ const StoreLocator = () => {
                             />
                         </picture>
                         <h3 className="text-h3">Lincoln Park</h3>
-                        <address className="text-p">
-                            211 W Armitage Ave, Chicago, IL 60614
-                        </address>
+                        <address className="text-p">211 W Armitage Ave, Chicago, IL 60614</address>
                         <div>
-                            <p className="text-p text-gray">
-                                T. +1 773 6216 240
-                            </p>
-                            <p className="text-p text-gray">
-                                E. hello@uxper.co
-                            </p>
+                            <p className="text-p text-gray">T. +1 773 6216 240</p>
+                            <p className="text-p text-gray">E. hello@uxper.co</p>
                             <p className="text-p text-gray">
                                 Mon: Closed, Tue-Sat: 12PM-6PM, Sun: Closed
                             </p>
                         </div>
                         <Link
                             to="/products"
+                            state={{ baseUrl: "/" }}
                             className="underline transition duration-200 hover:text-orange"
                         >
                             See Inventory
@@ -82,22 +76,17 @@ const StoreLocator = () => {
                             />
                         </picture>
                         <h3 className="text-h3">Georgetown</h3>
-                        <address className="text-p">
-                            332 M St NW, Washington, DC 20007
-                        </address>
+                        <address className="text-p">332 M St NW, Washington, DC 20007</address>
                         <div>
-                            <p className="text-p text-gray">
-                                T. +1 773 6216 240
-                            </p>
-                            <p className="text-p text-gray">
-                                E. hello@uxper.co
-                            </p>
+                            <p className="text-p text-gray">T. +1 773 6216 240</p>
+                            <p className="text-p text-gray">E. hello@uxper.co</p>
                             <p className="text-p text-gray">
                                 Mon: Closed, Tue-Sat: 12PM-6PM, Sun: Closed
                             </p>
                         </div>
                         <Link
                             to="/products"
+                            state={{ baseUrl: "/" }}
                             className="underline transition duration-200 hover:text-orange"
                         >
                             See Inventory
@@ -115,22 +104,17 @@ const StoreLocator = () => {
                             />
                         </picture>
                         <h3 className="text-h3">Hayes Valley</h3>
-                        <address className="text-p">
-                            123 Hayes St, San Francisco, CA 94102
-                        </address>
+                        <address className="text-p">123 Hayes St, San Francisco, CA 94102</address>
                         <div>
-                            <p className="text-p text-gray">
-                                T. +1 773 6216 240
-                            </p>
-                            <p className="text-p text-gray">
-                                E. hello@uxper.co
-                            </p>
+                            <p className="text-p text-gray">T. +1 773 6216 240</p>
+                            <p className="text-p text-gray">E. hello@uxper.co</p>
                             <p className="text-p text-gray">
                                 Mon: Closed, Tue-Sat: 12PM-6PM, Sun: Closed
                             </p>
                         </div>
                         <Link
                             to="/products"
+                            state={{ baseUrl: "/" }}
                             className="underline transition duration-200 hover:text-orange"
                         >
                             See Inventory
@@ -152,18 +136,15 @@ const StoreLocator = () => {
                             8425 Melrose Ave, Los Angeles, CA 90069
                         </address>
                         <div>
-                            <p className="text-p text-gray">
-                                T. +1 773 6216 240
-                            </p>
-                            <p className="text-p text-gray">
-                                E. hello@uxper.co
-                            </p>
+                            <p className="text-p text-gray">T. +1 773 6216 240</p>
+                            <p className="text-p text-gray">E. hello@uxper.co</p>
                             <p className="text-p text-gray">
                                 Mon: Closed, Tue-Sat: 12PM-6PM, Sun: Closed
                             </p>
                         </div>
                         <Link
                             to="/products"
+                            state={{ baseUrl: "/" }}
                             className="underline transition duration-200 hover:text-orange"
                         >
                             See Inventory

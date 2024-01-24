@@ -89,4 +89,27 @@
     label.checkbox.disabled:hover {
         cursor: not-allowed;
     }
+
+    /*Link animation*/
+    .underline-animation {
+        position: relative;
+    }
+    .underline-animation::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        border-top-width: 0.25rem;
+        border-top-style: solid;
+        transform: scaleX(0);
+        transform-origin: right center;
+        transition: transform 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+        border-color: #c8815f;
+    }
+    .underline-animation:hover::after {
+        transform: scaleX(1);
+        transform-origin: left center;
+        border-color: #c8815f;
+    }
 }

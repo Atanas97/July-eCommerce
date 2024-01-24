@@ -10,7 +10,7 @@ const Overlays = ({ children, isOpened, onClose }) => {
     }
     return createPortal(
         <>
-            <div className="fixed inset-0 h-full p-8 flex items-center flex-col bg-[rgba(26,26,26,.75)] overflow-auto md:overflow-hidden">
+            <div className="fixed inset-0 z-20 h-full p-8 flex items-center flex-col bg-[rgba(26,26,26,.75)] overflow-auto md:overflow-hidden">
                 <div className="mt-20">
                     <div className="w-full text-right">
                         <button onClick={onClose}>

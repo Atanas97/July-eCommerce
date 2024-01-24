@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 // Import Swiper styles
 import "swiper/css";
@@ -42,7 +42,17 @@ export default () => {
         </SwiperSlide>
     ));
     return (
-        <Swiper slidesPerView={1} className="h-dvh" pagination={pagination} modules={[Pagination]}>
+        <Swiper
+            slidesPerView={1}
+            loop
+            autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+            }}
+            className="h-dvh"
+            pagination={pagination}
+            modules={[Pagination, Autoplay]}
+        >
             {mappedSlides}
         </Swiper>
     );

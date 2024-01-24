@@ -4,11 +4,17 @@ import { Link } from "react-router-dom";
 
 const SliderSlide = ({ data }) => {
     const { subheader, heading, paragraph, button, image, urlstate } = data;
-    console.log(data);
     return (
         <div className="relative h-full">
-            <picture>
-                <img src={image} alt={heading} width={"100%"} height={"100%"} loading="lazy" />
+            <picture className="block h-full">
+                <img
+                    src={image}
+                    alt={heading}
+                    className="h-full object-cover"
+                    width={"100%"}
+                    height={"100%"}
+                    loading="lazy"
+                />
             </picture>
             <Section customClasses="absolute inset-0 flex items-center">
                 <div className="flex flex-col gap-9">
