@@ -11,7 +11,6 @@ const BestSellers = ({ title }) => {
     const MappedData = useMemo(() => {
         return apiData.map((item) => <Card data={item} key={item.id} />);
     }, [apiData]);
-    console.log(MappedData);
 
     return (
         <Section>
@@ -21,7 +20,7 @@ const BestSellers = ({ title }) => {
                 <button>Womens</button>
                 <button>Kids</button> 
             </div> */}
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 relative">
                 {isLoading ? <Loader /> : MappedData}
                 {isError && isError}
             </div>

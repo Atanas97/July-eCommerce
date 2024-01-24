@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 const Homepage = React.lazy(() => import("../Pages/Homepage"));
 const Products = React.lazy(() => import("../Pages/Products"));
 const SingleProduct = React.lazy(() => import("../Pages/SingleProduct"));
+const ProductCategories = React.lazy(() => import("../Pages/ProductCategories"));
 const AboutUs = React.lazy(() => import("../Pages/AboutUs"));
 const ContactUs = React.lazy(() => import("../Pages/ContactUs"));
 const ContactsSuccess = React.lazy(() => import("../Pages/ContactsSuccess"));
@@ -28,9 +29,19 @@ const routes = [
                 <Products />
             </Suspense>
         ),
+        children: [
+            {
+                path: "/products/category/:category",
+                element: (
+                    <Suspense fallback="Loading...">
+                        <ProductCategories />
+                    </Suspense>
+                ),
+            },
+        ],
     },
     {
-        path: "/product/:id",
+        path: "/products/:category/:title/:id",
         element: (
             <Suspense fallback="Loading...">
                 <SingleProduct />

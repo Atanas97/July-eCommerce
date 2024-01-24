@@ -1,18 +1,18 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Section from "../Components/Section";
 import BestSellers from "../Components/BestSellers/BestSellers";
 import NewsletterPopup from "../Layout/NewsletterPopup";
-import QuickView from "../Components/QuickView";
 import NewsletterSection from "../Components/NewsletterSection";
+import SkeletonLoading from "../Components/SkeletonLoading";
+import LimitedOffer from "../Components/LimitedOffer";
+import Slider from "../Components/Slider";
 
 const Homepage = () => {
     return (
         <>
             <Helmet>
                 <title>
-                    July Fashion: Timeless Elegance for Modern Living | Shop
-                    Stylish Clothing Online
+                    July Fashion: Timeless Elegance for Modern Living | Shop Stylish Clothing Online
                 </title>
                 <meta
                     name="description"
@@ -28,13 +28,15 @@ const Homepage = () => {
                 />
             </Helmet>
 
+            <NewsletterPopup />
+            <Slider />
             <BestSellers title="Best Sellers" />
+            <LimitedOffer />
             <NewsletterSection
                 title="NEWSLETTER"
                 message="Sign up and get up to 20% off your first purchase"
             />
-            {/* <NewsletterPopup /> */}
-            {/* <QuickView id="2" /> */}
+            <SkeletonLoading />
         </>
     );
 };

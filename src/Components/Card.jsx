@@ -6,7 +6,7 @@ import QuickView from "./QuickView";
 import { FiHeart, FiSearch } from "react-icons/fi";
 
 const Card = ({ data }) => {
-    const { id, title, image, price } = data;
+    const { id, title, image, price, category } = data;
 
     const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
@@ -18,7 +18,7 @@ const Card = ({ data }) => {
         <>
             <div className="group">
                 <div className="relative">
-                    <Link to={`/product/${id}`}>
+                    <Link to={`/products/${category}/${title}/${id}`}>
                         <picture className="w-[25rem] mx-auto flex justify-center aspect-square">
                             <img
                                 src={image}

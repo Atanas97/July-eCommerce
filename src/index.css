@@ -35,7 +35,7 @@
         display: inline-flex;
         align-items: center;
         line-height: initial;
-        font-weight: 300;
+        /* font-weight: 300; */
     }
 
     label.checkbox input {

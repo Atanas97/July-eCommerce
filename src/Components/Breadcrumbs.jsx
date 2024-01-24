@@ -7,8 +7,11 @@ const Breadcrumbs = () => {
     let currentLink = "";
     const crumbs = location.pathname
         .split("/")
+
         .filter((crumb) => crumb != "")
+
         .map((crumb) => {
+            crumb.replace(/%[0-9A-Fa-f]{2}/g, " ");
             currentLink += `/${crumb}`;
 
             return (

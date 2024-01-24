@@ -1,0 +1,31 @@
+import React from "react";
+import Section from "./Section";
+import { Link } from "react-router-dom";
+
+const SliderSlide = ({ data }) => {
+    const { subheader, heading, paragraph, button, image, urlstate } = data;
+    console.log(data);
+    return (
+        <div className="relative h-full">
+            <picture>
+                <img src={image} alt={heading} width={"100%"} height={"100%"} loading="lazy" />
+            </picture>
+            <Section customClasses="absolute inset-0 flex items-center">
+                <div className="flex flex-col gap-9">
+                    <h4 className="text-h4">{subheader}</h4>
+                    <h1 className="text-h1">{heading}</h1>
+                    <p className="text-p">{paragraph}</p>
+                    <Link
+                        to="/products"
+                        state={{ baseUrl: urlstate }}
+                        className="bg-black rounded-md px-16 py-5 text-white self-start transition duration-200 hover:opacity-90"
+                    >
+                        {button}
+                    </Link>
+                </div>
+            </Section>
+        </div>
+    );
+};
+
+export default SliderSlide;

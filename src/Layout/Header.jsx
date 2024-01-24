@@ -2,10 +2,11 @@ import Logo from "../Assets/july_logo.svg";
 import { FiHeart, FiSearch, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Home = () => {
     const [showMenu, setMenu] = useState(true);
+    const location = useLocation();
 
     const toggleMenu = () => {
         setMenu(!showMenu);
@@ -40,11 +41,7 @@ const Home = () => {
                             className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         >
                             <span className="sr-only">Open main menu</span>
-                            {showMenu ? (
-                                <FiX size={24} />
-                            ) : (
-                                <FiMenu size={24} />
-                            )}
+                            {showMenu ? <FiX size={24} /> : <FiMenu size={24} />}
                         </button>
                     </div>
                     <div className=" justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
@@ -72,6 +69,7 @@ const Home = () => {
                             <li>
                                 <Link
                                     to="/products"
+                                    state={{ baseUrl: "/" }}
                                     className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50  lg:p-0 dark:text-gray-400 "
                                 >
                                     Products
