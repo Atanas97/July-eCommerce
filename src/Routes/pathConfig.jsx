@@ -7,6 +7,7 @@ const ProductCategories = React.lazy(() => import("../Pages/ProductCategories"))
 const AboutUs = React.lazy(() => import("../Pages/AboutUs"));
 const ContactUs = React.lazy(() => import("../Pages/ContactUs"));
 const ContactsSuccess = React.lazy(() => import("../Pages/ContactsSuccess"));
+const Wishlist = React.lazy(() => import("../Pages/Wishlist"));
 const Returns = React.lazy(() => import("../Pages/Returns"));
 const StoreLocator = React.lazy(() => import("../Pages/StoreLocator"));
 const Careers = React.lazy(() => import("../Pages/Careers"));
@@ -77,6 +78,14 @@ const routes = [
         element: (
             <Suspense fallback="Loading...">
                 <ContactsSuccess />
+            </Suspense>
+        ),
+    },
+    {
+        path: "/wishlist",
+        element: (
+            <Suspense fallback="Loading...">
+                <Wishlist />
             </Suspense>
         ),
     },

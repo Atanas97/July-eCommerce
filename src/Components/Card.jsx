@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { WishlistContext } from "../Context/WishlistContext";
 
 import QuickView from "./QuickView";
 
 import { FiHeart, FiSearch } from "react-icons/fi";
 
 const Card = ({ data }) => {
+    const { addToWishlist, isAddedToWishlist } = useContext(WishlistContext);
+
     const { id, title, image, price, category } = data;
 
     const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
@@ -19,7 +22,7 @@ const Card = ({ data }) => {
             <div className="group [&>*]:overflow-hidden">
                 <div className="relative">
                     <Link to={`/products/${category}/${title}/${id}`}>
-                        <picture className="w-[25rem] mx-auto flex justify-center aspect-square">
+                        <picture className="max-w-[25rem] mx-auto flex justify-center aspect-square">
                             <img
                                 src={image}
                                 alt={title}
@@ -39,7 +42,10 @@ const Card = ({ data }) => {
                     </div>
 
                     <div className="flex flex-col gap-4 absolute -right-10 top-4 opacity-0 transition-all ease-in-out delay-350 group-hover:right-4 group-hover:opacity-100">
-                        <button className="bg-orange rounded-full flex items-center justify-center w-[5rem] h-[5rem]">
+                        <button
+                            className="bg-orange rounded-full flex items-center justify-center w-[5rem] h-[5rem]"
+                            onClick={() => addToWishlist(id, data)}
+                        >
                             <FiHeart size={24} color="white" />
                         </button>
                         <button

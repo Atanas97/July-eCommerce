@@ -68,7 +68,7 @@ const Products = () => {
             <PageBanner
                 title="Explore Elegance: July Clothing's Exquisite Collection of Stylish Products"
                 bgImage={ClothesBanner}
-                customClasses="text-bloack"
+                customClasses="text-black"
             />
             <Section>
                 <div className="lg:flex lg:items-start gap-10 my-20">
