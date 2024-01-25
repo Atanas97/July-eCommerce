@@ -32,16 +32,14 @@ const Card = ({ data }) => {
                         </picture>
                     </Link>
                     <div
-                        className="bg-zinc-950 text-center text-white p-4 cursor-pointer 
-                            transition-all ease-in-out delay-350
-                            absolute left-0 right-0 bottom-[-2rem] opacity-0 invisible 
-                            group-hover:bottom-0 group-hover:visible group-hover:opacity-100 group-hover:bg-orange"
+                        className="absolute bottom-0 left-0 right-0 bg-orange p-4 text-center text-white cursor-pointer md:bottom-[-2rem] md:opacity-0 md:invisible
+                        md:group-hover:bottom-0 group-hover:visible md:group-hover:opacity-100 transition-all ease-in-out delay-350"
                     >
-                        <Link to={`/product/${id}`}>Select option</Link>
+                        <Link to={`/products/${category}/${title}/${id}`}>Select option</Link>
                         {/* <p>Select Option</p> */}
                     </div>
 
-                    <div className="flex flex-col gap-4 absolute -right-10 top-4 opacity-0 transition-all ease-in-out delay-350 group-hover:right-4 group-hover:opacity-100">
+                    <div className="flex flex-col gap-4 absolute right-0 top-4 md:opacity-0 transition-all ease-in-out delay-350 md:-right-10 md:group-hover:right-4 group-hover:opacity-100">
                         <button
                             className="bg-orange rounded-full flex items-center justify-center w-[5rem] h-[5rem]"
                             onClick={() => addToWishlist(id, data)}

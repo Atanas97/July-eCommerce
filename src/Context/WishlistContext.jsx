@@ -3,13 +3,11 @@ import { createContext, useState } from "react";
 //create the context
 export const WishlistContext = createContext();
 
+//BIG TODO: MOVE TO A REDUCER!!!
+
 const WishlistProviver = ({ children }) => {
     //wishlist state
     const [wishlist, setWishlist] = useState([]);
-    const [AddedToWishlist, setAddedToWishlist] = useState({
-        isAdded: false,
-        id: undefined,
-    });
 
     const addToWishlist = (id, product) => {
         const newWishlistItem = { ...product };
@@ -36,9 +34,14 @@ const WishlistProviver = ({ children }) => {
             setWishlist([...wishlist, newWishlistItem]);
         }
     };
-    console.log(wishlist);
+
+    const removeWishlist = (id) => {
+        const removedItem = [...wishlist].filter((item) => item.id !== id);
+        setWishlist(removedItem);
+    };
+
     return (
-        <WishlistContext.Provider value={{ wishlist, AddedToWishlist, addToWishlist }}>
+        <WishlistContext.Provider value={{ wishlist, removeWishlist, addToWishlist }}>
             {children}
         </WishlistContext.Provider>
     );
