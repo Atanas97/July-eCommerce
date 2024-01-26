@@ -6,9 +6,11 @@ import Section from "../Components/Section";
 
 import Logo from "../Assets/july_logo.svg";
 import { FiHeart, FiSearch, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
+import { CartContext } from "../Context/CartContext";
 
 const Home = () => {
     const { wishlist } = useContext(WishlistContext);
+    const { cart, setIsCartSlideOpen } = useContext(CartContext);
     const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
@@ -39,15 +41,24 @@ const Home = () => {
                                     )}
                                 </Link>
                             </div>
-                            <div className="p-4">
-                                <a href="" title="cart">
+                            <div className="relative p-4">
+                                <button
+                                    onClick={() => setIsCartSlideOpen(true)}
+                                    type="button"
+                                    title="cart"
+                                >
                                     <FiShoppingCart size={24} />
-                                </a>
+                                    {cart.length > 0 && (
+                                        <span className="absolute top-0 right-0 bg-orange rounded-full flex justify-center items-center w-8 h-8 text-white">
+                                            {cart.length}
+                                        </span>
+                                    )}
+                                </button>
                             </div>
                             <button
                                 onClick={toggleMenu}
                                 type="button"
-                                className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none"
+                                className="inline-flex items-center p-2 ml-1 text-sm rounded-lg lg:hidden focus:outline-none"
                             >
                                 <span className="sr-only">Open main menu</span>
                                 {showMenu ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -62,7 +73,7 @@ const Home = () => {
                                 <li>
                                     <Link
                                         to="/"
-                                        className="block py-2 pr-4 pl-3 rounded bg-primary-700 lg:p-0 underline-animation"
+                                        className="block font-normal text-h4 py-2 pr-4 pl-3 rounded bg-primary-700 lg:p-0 underline-animation"
                                         onClick={toggleMenu}
                                     >
                                         Home
@@ -71,7 +82,7 @@ const Home = () => {
                                 <li>
                                     <Link
                                         to="/products"
-                                        className="block py-2 pr-4 pl-3 text-gray-700 lg:p-0 underline-animation"
+                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
                                         state={{ baseUrl: "/" }}
                                         onClick={toggleMenu}
                                     >
@@ -81,7 +92,7 @@ const Home = () => {
                                 <li>
                                     <Link
                                         to="/aboutus"
-                                        className="block py-2 pr-4 pl-3 text-gray-700 lg:p-0 underline-animation"
+                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
                                         onClick={toggleMenu}
                                     >
                                         About Us
@@ -90,7 +101,7 @@ const Home = () => {
                                 <li>
                                     <Link
                                         to="/store-locator"
-                                        className="block py-2 pr-4 pl-3 text-gray-700 lg:p-0 underline-animation"
+                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
                                         onClick={toggleMenu}
                                     >
                                         Store Locator
@@ -99,7 +110,7 @@ const Home = () => {
                                 <li>
                                     <Link
                                         to="/"
-                                        className="block py-2 pr-4 pl-3 text-gray-700 lg:p-0 underline-animation"
+                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
                                         onClick={toggleMenu}
                                     >
                                         Team
@@ -108,7 +119,7 @@ const Home = () => {
                                 <li>
                                     <Link
                                         to="/contactus"
-                                        className="block py-2 pr-4 pl-3 text-gray-700 lg:p-0 underline-animation"
+                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
                                         onClick={toggleMenu}
                                     >
                                         Contact Us

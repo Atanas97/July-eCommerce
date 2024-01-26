@@ -1,13 +1,15 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { WishlistContext } from "../Context/WishlistContext";
+import { CartContext } from "../Context/CartContext";
 
 import QuickView from "./QuickView";
 
-import { FiHeart, FiSearch } from "react-icons/fi";
+import { FiHeart, FiSearch, FiShoppingCart } from "react-icons/fi";
 
 const Card = ({ data }) => {
-    const { addToWishlist, isAddedToWishlist } = useContext(WishlistContext);
+    const { addToWishlist } = useContext(WishlistContext);
+    const { addToCart } = useContext(CartContext);
 
     const { id, title, image, price, category } = data;
 
@@ -51,6 +53,12 @@ const Card = ({ data }) => {
                             className="bg-orange rounded-full flex items-center justify-center w-[5rem] h-[5rem]"
                         >
                             <FiSearch size={24} color="white" />
+                        </button>
+                        <button
+                            onClick={() => addToCart(id, data)}
+                            className="bg-orange rounded-full flex items-center justify-center w-[5rem] h-[5rem]"
+                        >
+                            <FiShoppingCart size={24} color="white" />
                         </button>
                     </div>
                 </div>

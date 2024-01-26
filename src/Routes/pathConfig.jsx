@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 const Homepage = React.lazy(() => import("../Pages/Homepage"));
 const Products = React.lazy(() => import("../Pages/Products"));
 const SingleProduct = React.lazy(() => import("../Pages/SingleProduct"));
+const CartCheckout = React.lazy(() => import("../Pages/CartCheckout"));
 const ProductCategories = React.lazy(() => import("../Pages/ProductCategories"));
 const AboutUs = React.lazy(() => import("../Pages/AboutUs"));
 const ContactUs = React.lazy(() => import("../Pages/ContactUs"));
@@ -54,6 +55,14 @@ const routes = [
         element: (
             <Suspense fallback="Loading...">
                 <AboutUs />
+            </Suspense>
+        ),
+    },
+    {
+        path: "/cart-checkout",
+        element: (
+            <Suspense fallback="Loading...">
+                <CartCheckout />
             </Suspense>
         ),
     },
@@ -120,11 +129,6 @@ const routes = [
                 <TermsOfUse />
             </Suspense>
         ),
-        children: [
-            {
-                path: "/termsofuse/123",
-            },
-        ],
     },
 ];
 

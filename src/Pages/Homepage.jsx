@@ -6,6 +6,7 @@ import NewsletterSection from "../Components/NewsletterSection";
 import SkeletonLoading from "../Components/SkeletonLoading";
 import LimitedOffer from "../Components/LimitedOffer";
 import Slider from "../Components/Slider";
+import CartSlide from "../Components/CartSlide";
 
 const Homepage = () => {
     return (
@@ -32,6 +33,7 @@ const Homepage = () => {
             <Slider />
             <BestSellers title="Best Sellers" />
             <LimitedOffer />
+            {/* <CartSlide /> */}
             <NewsletterSection
                 title="NEWSLETTER"
                 message="Sign up and get up to 20% off your first purchase"

@@ -11,7 +11,6 @@ const WishlistProviver = ({ children }) => {
 
     const addToWishlist = (id, product) => {
         const newWishlistItem = { ...product };
-
         const wishlistItem = wishlist.find((item) => {
             return item.id === id;
         });
@@ -20,10 +19,6 @@ const WishlistProviver = ({ children }) => {
             const newWishlist = [...wishlist].map((item) => {
                 if (item.id === id) {
                     alert(`you already have ${item.id} set`);
-                    setAddedToWishlist({
-                        isAdded: true,
-                        id: item.id,
-                    });
                     return { ...item };
                 } else {
                     return item;

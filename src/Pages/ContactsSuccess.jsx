@@ -9,9 +9,7 @@ const ContactsSuccess = () => {
     return (
         <>
             <Helmet>
-                <title>
-                    Success! Your Style Journey Begins with July Clothing
-                </title>
+                <title>Success! Your Style Journey Begins with July Clothing</title>
                 <meta
                     name="description"
                     content="Thank you for connecting with us! Your form submission was successful. Get ready to embark on a stylish adventure with July Clothing. Stay tuned for updates on the latest trends, exclusive offers, and fashion inspiration. Your journey to timeless elegance starts here. Explore, shop, and redefine your style with July."
@@ -53,17 +51,14 @@ const ContactsSuccess = () => {
                             d="M 20.46875,26.001953 29.164062,34.697266 52.06055,11.800781"
                         ></path>
                     </svg>
-                    <h1 className="text-h1">
-                        Thank you for sending us a message!
-                    </h1>
+                    <h1 className="text-h1">Thank you for sending us a message!</h1>
                     <p className="text-p my-10">
-                        Congratulations! Your message has been successfully
-                        submitted to the July Clothing team. We appreciate your
-                        interest and look forward to connecting with you. Our
-                        dedicated team is committed to providing exceptional
-                        service and will be in touch with you shortly.
+                        Congratulations! Your message has been successfully submitted to the July
+                        Clothing team. We appreciate your interest and look forward to connecting
+                        with you. Our dedicated team is committed to providing exceptional service
+                        and will be in touch with you shortly.
                     </p>
-                    <Link to="/" className="underline">
+                    <Link to="/" className="underline-animation">
                         Go back to Homepage
                     </Link>
                 </div>
