@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../Context/CartContext";
 import RemainingTillDelivery from "./RemainingTillDelivery";
 
-const CartAsideBlock = () => {
+const CartAsideBlock = ({ handleSubmit }) => {
     const { totalSum } = useContext(CartContext);
+
+    const handleClick = () => {
+        handleSubmit();
+    };
 
     let shippingInfo;
     if (totalSum < 300)
@@ -40,12 +44,13 @@ const CartAsideBlock = () => {
                     <span className="text-h2 font-normal">${totalSum.toFixed()}</span>
                 </div>
 
-                <Link
-                    to="/"
+                <button
+                    type="submit"
+                    onClick={handleClick}
                     className="block bg-black w-full text-white text-center rounded-lg p-4"
                 >
                     Checkout
-                </Link>
+                </button>
 
                 {totalSum < 300 && <RemainingTillDelivery />}
             </div>

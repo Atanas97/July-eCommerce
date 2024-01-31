@@ -4,7 +4,7 @@ const colors = {
     black: "#111111",
     white: "#ffffff",
     orange: "#c8815f",
-    red: "#f84c5d",
+    customRed: "#f84c5d",
     mainGray: "#555555",
     lgray: "#999999",
 };

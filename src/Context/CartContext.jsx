@@ -31,7 +31,7 @@ const CartProvider = ({ children }) => {
     };
 
     const totalSum = cart.reduce((accumulator, cartItem) => {
-        return accumulator + cartItem.price;
+        return accumulator + cartItem.price * cartItem.amount;
     }, 0);
 
     return (

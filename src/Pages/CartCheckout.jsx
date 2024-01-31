@@ -1,20 +1,27 @@
 import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-
+import { useForm } from "react-hook-form";
 import ClothesBanner from "../Assets/clothes_banner.jpg";
 import Section from "../Components/Section";
 import PageBanner from "../Components/PageBanner";
 import CartCheckoutItem from "../Components/CartCheckoutItem";
 import CartAsideBlock from "../Components/CartAsideBlock";
+import CartDeliveryForm from "../Components/CartDeliveryForm";
 
 const CartCheckout = () => {
+    const { register, handleSubmit, watch, formState } = useForm();
+    const { errors } = formState;
+    const navigate = useNavigate();
     const { cart } = useContext(CartContext);
-    console.log(cart);
 
     const mappedCartItems = cart.map((item) => <CartCheckoutItem item={item} key={item.id} />);
-
+    const onSubmit = (data) => {
+        navigate("/cart-preview", { state: { formData: data } });
+        console.log(data);
+    };
     return (
         <>
             <Helmet>
@@ -43,13 +50,20 @@ const CartCheckout = () => {
 
             <Section>
                 <div className="my-40 lg:flex lg:gap-10">
-                    <article className="lg:w-full">
-                        <h2 className="text-h2 mb-8">Your Cart</h2>
-                        {mappedCartItems}
-                    </article>
-                    <aside className="lg:w-2/5">
-                        <CartAsideBlock />
-                    </aside>
+                    {cart.length <= 0 ? (
+                        <p className="text-p">Your cart is empty. Continue shopping</p>
+                    ) : (
+                        <>
+                            <article className="lg:w-full">
+                                <h2 className="text-h2 mb-8">Your Cart</h2>
+                                {mappedCartItems}
+                                <CartDeliveryForm register={register} errors={errors} />
+                            </article>
+                            <aside className="lg:w-2/5">
+                                <CartAsideBlock handleSubmit={handleSubmit(onSubmit)} />
+                            </aside>
+                        </>
+                    )}
                 </div>
             </Section>
         </>
