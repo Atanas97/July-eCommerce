@@ -6,8 +6,11 @@ import Loader from "../Components/Loader";
 import EmailSend from "../utils/EmailSend";
 
 const NewsletterPopup = () => {
+    const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+
     const [isModalOpened, setIsModalOpened] = useState(false);
-    const { form, loading, emailSendError, userEmail, handleNewsletterSubmit } = EmailSend();
+    const { form, loading, emailSendError, userEmail, handleNewsletterSubmit } =
+        EmailSend(TEMPLATE_ID);
 
     const popUpCheckbox = useRef();
 
