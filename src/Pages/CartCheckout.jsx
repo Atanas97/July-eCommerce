@@ -12,15 +12,14 @@ import CartAsideBlock from "../Components/CartAsideBlock";
 import CartDeliveryForm from "../Components/CartDeliveryForm";
 
 const CartCheckout = () => {
-    const { register, handleSubmit, watch, formState } = useForm();
+    const { register, handleSubmit, formState } = useForm();
     const { errors } = formState;
-    const navigate = useNavigate();
     const { cart } = useContext(CartContext);
+    const navigate = useNavigate();
 
     const mappedCartItems = cart.map((item) => <CartCheckoutItem item={item} key={item.id} />);
     const onSubmit = (data) => {
         navigate("/cart-preview", { state: { formData: data } });
-        console.log(data);
     };
     return (
         <>

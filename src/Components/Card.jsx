@@ -21,7 +21,8 @@ const Card = ({ data }) => {
 
     return (
         <>
-            <div className="group [&>*]:overflow-hidden">
+            {/* [&>*]:overflow-hidden */}
+            <div className="group p-8 border flex flex-col">
                 <div className="relative">
                     <Link to={`/products/${category}/${title}/${id}`}>
                         <picture className="max-w-[25rem] mx-auto flex justify-center aspect-square">
@@ -33,13 +34,6 @@ const Card = ({ data }) => {
                             />
                         </picture>
                     </Link>
-                    <div
-                        className="absolute bottom-0 left-0 right-0 bg-orange p-4 text-center text-white cursor-pointer md:bottom-[-2rem] md:opacity-0 md:invisible
-                        md:group-hover:bottom-0 group-hover:visible md:group-hover:opacity-100 transition-all ease-in-out delay-350"
-                    >
-                        <Link to={`/products/${category}/${title}/${id}`}>Select option</Link>
-                        {/* <p>Select Option</p> */}
-                    </div>
 
                     <div className="flex flex-col gap-4 absolute right-0 top-4 md:opacity-0 transition-all ease-in-out delay-350 md:-right-10 md:group-hover:right-4 group-hover:opacity-100">
                         <button
@@ -62,9 +56,17 @@ const Card = ({ data }) => {
                         </button>
                     </div>
                 </div>
-                <div className="mt-4">
-                    <h4 className="text-h4 font-normal my-6">{title}</h4>
-                    <p className="font-normal text-h4">${price}</p>
+                <div className="mt-4 text-center flex flex-col h-full">
+                    <small className="inline-block my-4">{category}</small>
+                    <h4 className="text-h4 font-">{title}</h4>
+                    <p className="font-normal text-h4 my-6">${price}</p>
+
+                    <Link
+                        className="inline-block mt-auto self-center bg-orange px-10 py-4 text-center text-white cursor-pointer"
+                        to={`/products/${category}/${title}/${id}`}
+                    >
+                        Select option
+                    </Link>
                 </div>
             </div>
             {isQuickViewOpen && (

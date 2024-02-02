@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import { WishlistContext } from "../Context/WishlistContext";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { CartContext } from "../Context/CartContext";
 
 import Section from "../Components/Section";
 
 import Logo from "../Assets/july_logo.svg";
 import { FiHeart, FiSearch, FiShoppingCart, FiMenu, FiX } from "react-icons/fi";
-import { CartContext } from "../Context/CartContext";
-
 const Home = () => {
     const { wishlist } = useContext(WishlistContext);
     const { cart, setIsCartSlideOpen } = useContext(CartContext);
@@ -46,6 +45,7 @@ const Home = () => {
                                     onClick={() => setIsCartSlideOpen(true)}
                                     type="button"
                                     title="cart"
+                                    className="flex"
                                 >
                                     <FiShoppingCart size={24} />
                                     {cart.length > 0 && (
@@ -71,59 +71,87 @@ const Home = () => {
                                 } lg:flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0`}
                             >
                                 <li>
-                                    <Link
+                                    <NavLink
                                         to="/"
-                                        className="block font-normal text-h4 py-2 pr-4 pl-3 rounded bg-primary-700 lg:p-0 underline-animation"
-                                        onClick={toggleMenu}
+                                        className={({ isActive }) => {
+                                            return (
+                                                "block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation" +
+                                                (isActive ? " text-orange" : "")
+                                            );
+                                        }}
                                     >
                                         Home
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link
+                                    <NavLink
                                         to="/products"
-                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
+                                        className={({ isActive }) => {
+                                            return (
+                                                "block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation" +
+                                                (isActive ? " text-orange" : "")
+                                            );
+                                        }}
                                         state={{ baseUrl: "/" }}
                                         onClick={toggleMenu}
                                     >
                                         Products
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link
+                                    <NavLink
                                         to="/aboutus"
-                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
+                                        className={({ isActive }) => {
+                                            return (
+                                                "block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation" +
+                                                (isActive ? " text-orange" : "")
+                                            );
+                                        }}
                                         onClick={toggleMenu}
                                     >
                                         About Us
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link
+                                    <NavLink
                                         to="/store-locator"
-                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
-                                        onClick={toggleMenu}
+                                        className={({ isActive }) => {
+                                            return (
+                                                "block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation" +
+                                                (isActive ? " text-orange" : "")
+                                            );
+                                        }}
                                     >
                                         Store Locator
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link
-                                        to="/"
-                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
+                                    <NavLink
+                                        to="/team"
+                                        className={({ isActive }) => {
+                                            return (
+                                                "block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation" +
+                                                (isActive ? " text-orange" : "")
+                                            );
+                                        }}
                                         onClick={toggleMenu}
                                     >
                                         Team
-                                    </Link>
+                                    </NavLink>
                                 </li>
                                 <li>
-                                    <Link
+                                    <NavLink
                                         to="/contactus"
-                                        className="block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation"
+                                        className={({ isActive }) => {
+                                            return (
+                                                "block font-normal text-h4 py-2 pr-4 pl-3 lg:p-0 underline-animation" +
+                                                (isActive ? " text-orange" : "")
+                                            );
+                                        }}
                                         onClick={toggleMenu}
                                     >
                                         Contact Us
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             </ul>
                         </div>

@@ -89,9 +89,10 @@ const FAQ = () => {
                     />
                     <div className="mt-10 text-center">
                         <p className="text-p mb-10">Have a question not covered in the FAQ?</p>
+
                         <Link
                             to="/contactus"
-                            className="bg-black text-white rounded-xl px-12 py-6 mx-auto transition-colors duration-300 hover:opacity-90"
+                            className="inline-block bg-black text-white rounded-xl px-12 py-6 mx-auto transition-colors duration-300 hover:opacity-90"
                         >
                             Contact Us
                         </Link>

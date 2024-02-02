@@ -2,7 +2,6 @@ import React from "react";
 import FormErrorMsg from "./FormErrorMsg";
 
 const CartDeliveryForm = ({ register, errors }) => {
-    console.log(errors);
     return (
         <div>
             <h2 className="text-h2 my-6">Billing details</h2>
@@ -16,7 +15,7 @@ const CartDeliveryForm = ({ register, errors }) => {
                             {...register("firstName", {
                                 required: "Please enter a valid first name.",
                                 minLength: 3,
-                                pattern: /^[A-Za-z]+$/i,
+                                pattern: /^[A-Za-z]/i,
                                 // message: "Please enter a valid first name.",
                             })}
                         />
@@ -33,7 +32,7 @@ const CartDeliveryForm = ({ register, errors }) => {
                                 pattern: /^[A-Za-z]+$/i,
                             })}
                         />
-                        {errors.lastName && <FormErrorMsg message={errors.lastName?.message} />}
+                        {errors.lastName && <FormErrorMsg message={errors.lastName.message} />}
                     </div>
                     <div className="relative">
                         <input
@@ -46,7 +45,7 @@ const CartDeliveryForm = ({ register, errors }) => {
                                 pattern: /(\+)?(359|0)8[789]\d{1}(|-| )\d{3}(|-| )\d{3}/,
                             })}
                         />
-                        {errors.phone && <FormErrorMsg message={errors.phone?.message} />}
+                        {errors.phone && <FormErrorMsg message={errors.phone.message} />}
                     </div>
                     <div className="relative">
                         <input
@@ -59,7 +58,7 @@ const CartDeliveryForm = ({ register, errors }) => {
                                 pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
                             })}
                         />
-                        {errors.email && <FormErrorMsg message={errors.email?.message} />}
+                        {errors.email && <FormErrorMsg message={errors.email.message} />}
                     </div>
                 </div>
                 <div className="grid mt-6 gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -75,7 +74,7 @@ const CartDeliveryForm = ({ register, errors }) => {
                                     /^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$/,
                             })}
                         />
-                        {errors.city && <FormErrorMsg message={errors.city?.message} />}
+                        {errors.city && <FormErrorMsg message={errors.city.message} />}
                     </div>
                     <div className="relative">
                         <input
@@ -88,7 +87,7 @@ const CartDeliveryForm = ({ register, errors }) => {
                             })}
                         />
                         {errors.streetAddress && (
-                            <FormErrorMsg message={errors.streetAddress?.message} />
+                            <FormErrorMsg message={errors.streetAddress.message} />
                         )}
                     </div>
                     <div className="relative">
