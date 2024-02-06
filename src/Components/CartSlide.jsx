@@ -6,17 +6,9 @@ import { FiX } from "react-icons/fi";
 import CartSlideOverlay from "../Layout/CartSlideOverlay";
 import EmptyCartSlide from "./EmptyCartSlide";
 
-export default function Example() {
+export default function CartSlide() {
     const { cart, totalSum, removeCartItem, setIsCartSlideOpen, isCartSlideOpen } =
         useContext(CartContext);
-
-    // const getWishlistData = () => {
-    //     if (wishlist.length <= 0) alert("your wishlist is empty!");
-
-    //     wishlist.map(item => {
-    //         <div>{item}</div>
-    //     }
-    // )};
 
     return (
         <>

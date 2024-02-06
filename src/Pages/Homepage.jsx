@@ -1,9 +1,10 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Toaster } from "react-hot-toast";
+
 import BestSellers from "../Components/BestSellers/BestSellers";
 import NewsletterPopup from "../Layout/NewsletterPopup";
 import NewsletterSection from "../Components/NewsletterSection";
-import SkeletonLoading from "../Components/SkeletonLoading";
 import LimitedOffer from "../Components/LimitedOffer";
 import Slider from "../Components/Slider";
 import Testimonials from "../Components/Testimonials";
@@ -37,7 +38,7 @@ const Homepage = () => {
             {/* <CartSlide /> */}
             <Testimonials />
             <InfiniteScrollAnimation />
-            <SkeletonLoading />
+            <Toaster />
             <NewsletterSection
                 title="NEWSLETTER"
                 message="Sign up and get up to 20% off your first purchase"

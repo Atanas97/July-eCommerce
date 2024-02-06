@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import toast from "react-hot-toast";
 
 //create the context
 export const WishlistContext = createContext();
@@ -14,11 +15,11 @@ const WishlistProviver = ({ children }) => {
         const wishlistItem = wishlist.find((item) => {
             return item.id === id;
         });
-        //if
+
         if (wishlistItem) {
             const newWishlist = [...wishlist].map((item) => {
                 if (item.id === id) {
-                    alert(`you already have ${item.id} set`);
+                    // toast.success(`${item.title} has been added to your wishlist!`);
                     return { ...item };
                 } else {
                     return item;
@@ -26,6 +27,12 @@ const WishlistProviver = ({ children }) => {
             });
             setWishlist(newWishlist);
         } else {
+            toast.success(`${newWishlistItem.title} has been added to your wishlist!`, {
+                style: {
+                    fontWeight: 500,
+                    duration: 6000,
+                },
+            });
             setWishlist([...wishlist, newWishlistItem]);
         }
     };

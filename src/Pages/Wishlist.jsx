@@ -5,18 +5,15 @@ import { Helmet } from "react-helmet";
 
 import Section from "../Components/Section";
 import WishlistCard from "../Components/WishlistCard";
+import EmptyCartCheckout from "../Components/EmptyCartCheckout";
 
 import PageBanner from "../Components/PageBanner";
 import ClothesBanner from "../Assets/clothes_banner.jpg";
+import EmptyWishlistImg from "../Assets/unDraw/empty_wishlist_img.svg";
 
 const Wishlist = () => {
     const { wishlist } = useContext(WishlistContext);
 
-    let emptyContent;
-
-    if (wishlist.length <= 0) {
-        emptyContent = <p className="text-p">There are no products on the wishlist!</p>;
-    }
     return (
         <>
             <Helmet>
@@ -42,12 +39,19 @@ const Wishlist = () => {
             />
             <Section>
                 <div className="my-40">
-                    {emptyContent}
-                    <div className="grid gap-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
-                        {wishlist.map((item) => (
-                            <WishlistCard product={item} key={item.id} />
-                        ))}
-                    </div>
+                    {wishlist.length <= 0 ? (
+                        <EmptyCartCheckout
+                            title="Your Wishlist is Empty"
+                            text="Your wishlist is currently empty, but you can start curating your dream wardrobe by exploring our latest collections and adding your favorite pieces now!"
+                            image={EmptyWishlistImg}
+                        />
+                    ) : (
+                        <div className="grid gap-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+                            {wishlist.map((item) => (
+                                <WishlistCard product={item} key={item.id} />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </Section>
         </>

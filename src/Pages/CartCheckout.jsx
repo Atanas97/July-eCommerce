@@ -10,6 +10,9 @@ import PageBanner from "../Components/PageBanner";
 import CartCheckoutItem from "../Components/CartCheckoutItem";
 import CartAsideBlock from "../Components/CartAsideBlock";
 import CartDeliveryForm from "../Components/CartDeliveryForm";
+import EmptyCartCheckout from "../Components/EmptyCartCheckout";
+
+import EmptyCheckoutImage from "../Assets/unDraw/empty_cartcheckout_img.svg";
 
 const CartCheckout = () => {
     const { register, handleSubmit, formState } = useForm();
@@ -50,7 +53,12 @@ const CartCheckout = () => {
             <Section>
                 <div className="my-40 lg:flex lg:gap-10">
                     {cart.length <= 0 ? (
-                        <p className="text-p">Your cart is empty. Continue shopping</p>
+                        <EmptyCartCheckout
+                            title="Your Shopping Cart is Empty"
+                            text="Your shopping cart is empty, but you're just a few clicks away from adding fabulous
+                        finds to your wardrobe—explore our latest collections now!"
+                            image={EmptyCheckoutImage}
+                        />
                     ) : (
                         <>
                             <article className="lg:w-full">

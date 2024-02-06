@@ -1,4 +1,6 @@
 import { useState, createContext } from "react";
+import toast from "react-hot-toast";
+import CustomToast from "../Components/CustomToast";
 
 export const CartContext = createContext();
 
@@ -23,6 +25,7 @@ const CartProvider = ({ children }) => {
             setCart(newCart);
         } else {
             setCart([...cart, newItem]);
+            toast.custom((t) => <CustomToast newItem={newItem} t={t} />);
         }
     };
     const removeCartItem = (id) => {

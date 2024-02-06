@@ -6,6 +6,7 @@ import { CartContext } from "../Context/CartContext";
 import QuickView from "./QuickView";
 
 import { FiHeart, FiSearch, FiShoppingCart } from "react-icons/fi";
+import { Toaster } from "react-hot-toast";
 
 const Card = ({ data }) => {
     const { addToWishlist } = useContext(WishlistContext);
@@ -56,6 +57,8 @@ const Card = ({ data }) => {
                         </button>
                     </div>
                 </div>
+
+                <Toaster />
                 <div className="mt-4 text-center flex flex-col h-full">
                     <small className="inline-block my-4">{category}</small>
                     <h4 className="text-h4 font-">{title}</h4>

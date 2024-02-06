@@ -1,9 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = {
-    black: "#111111",
+    black: "#101415",
     white: "#ffffff",
-    orange: "#c8815f",
+    orange: "#ffcb74",
     customRed: "#f84c5d",
     mainGray: "#555555",
     lgray: "#999999",
