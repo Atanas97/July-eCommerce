@@ -5,7 +5,9 @@ const Products = React.lazy(() => import("../Pages/Products"));
 const SingleProduct = React.lazy(() => import("../Pages/SingleProduct"));
 const CartCheckout = React.lazy(() => import("../Pages/CartCheckout"));
 const CartPreview = React.lazy(() => import("../Pages/CartPreview"));
-const ProductCategories = React.lazy(() => import("../Pages/ProductCategories"));
+const ProductCategories = React.lazy(
+    () => import("../Pages/ProductCategories"),
+);
 const AboutUs = React.lazy(() => import("../Pages/AboutUs"));
 const ContactUs = React.lazy(() => import("../Pages/ContactUs"));
 const ContactsSuccess = React.lazy(() => import("../Pages/ContactsSuccess"));
