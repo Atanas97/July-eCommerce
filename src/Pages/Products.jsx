@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useFetchApi from "../Hooks/useFetchApi";
+import DropdownBtn from "../Components/DropdownBtn";
 
 import ClothesBanner from "../Assets/clothes_banner.jpg";
 import PageBanner from "../Components/PageBanner";
@@ -11,6 +12,7 @@ import Loader from "../Components/Loader";
 
 const Products = () => {
     const [productCategories, setProductCategories] = useState("");
+
     const location = useLocation();
     let receivedData = location.state;
 
@@ -23,33 +25,46 @@ const Products = () => {
     }, [productCategories]);
 
     const { apiData, isLoading, isError } = useFetchApi(
-        `https://fakestoreapi.com/products${receivedData ? productCategories : "/"}`
+        `https://fakestoreapi.com/products${receivedData ? productCategories : "/"}`,
     );
 
-    const shopItems = apiData.map((item) => <Card data={item} key={item.id} />);
+    const AlphabeticalAtoZ = [
+        ...apiData.sort((a, b) => a.title.localeCompare(b.title)),
+    ];
+    const AlphabeticalZtoA = [
+        ...apiData.sort((b, a) => b.title - a.title).reverse(),
+    ];
 
-    // const [fullShopItems, setFullShopItems] = useState(apiData);
+    const PriceLtoH = [...apiData.sort((a, b) => a.price - b.price)];
+    const PriceHtoL = [...apiData.sort((a, b) => b.price - a.price)];
+    const defaultSort = [...apiData.sort((a, b) => a.id - b.id)];
 
-    const [filteredByPrice, setFilteredByPrice] = useState([]);
+    const [selectedFilter, setSelectedFilter] = useState(defaultSort);
 
-    const handleFilterByPrice = (minPrice, maxPrice) => {
-        //Create a new array filled with all the prices
-        const priceArr = Array.from(apiData.map((item) => item.price));
-
-        //Filter prices based on input
-        const filtered = priceArr.filter((element) => element >= minPrice && element <= maxPrice);
-
-        const filteredKeywords = priceArr.filter((item) => filtered.includes(item));
-        console.log(filteredKeywords);
-        setFilteredByPrice(filteredKeywords);
-        // setFullShopItems(filteredByPrice);
+    const filterTypes = {
+        AlphabeticalAtoZ,
+        AlphabeticalZtoA,
+        PriceLtoH,
+        PriceHtoL,
+        defaultSort,
     };
+
+    useEffect(() => {
+        if (apiData) {
+            setSelectedFilter(apiData);
+        }
+    }, [apiData]);
+
+    const shopItems = useMemo(() => {
+        return selectedFilter.map((item) => <Card data={item} key={item.id} />);
+    }, [selectedFilter]);
 
     return (
         <>
             <Helmet>
                 <title>
-                    Explore Elegance: July Clothing's Exquisite Collection of Stylish Products
+                    Explore Elegance: July Clothing's Exquisite Collection of
+                    Stylish Products
                 </title>
                 <meta
                     name="description"
@@ -70,52 +85,15 @@ const Products = () => {
                 bgImage={ClothesBanner}
                 customClasses="text-black"
             />
-            <Section>
-                <div className="lg:flex lg:items-start gap-10 my-20">
-                    <aside className="w-[40rem]">
-                        <h3 className="text-h3 font-medium">Filters</h3>
-                        <hr className="text-[#ccc] my-10" />
-                        <div>
-                            <h4>Categories</h4>
-                            <div>
-                                <ul>
-                                    {/* {apiData.map((item) => (
-                                        <li>{item.category}</li>
-                                    ))} */}
-                                </ul>
-                            </div>
-                            <h4>Price</h4>
-                            <div>
-                                <ul>
-                                    <li onClick={() => handleFilterByPrice(10, 49)}>
-                                        <label className="checkbox">
-                                            <input type="checkbox" />
-                                            <span></span>
-                                            $10 - $49
-                                        </label>
-                                    </li>
-                                    <li onClick={() => handleFilterByPrice(50, 100)}>
-                                        <label className="checkbox">
-                                            <input type="checkbox" />
-                                            <span></span>
-                                            $50 - $99
-                                        </label>
-                                    </li>
-                                    <li onClick={() => handleFilterByPrice(100, 200)}>
-                                        <label className="checkbox">
-                                            <input type="checkbox" />
-                                            <span></span>
-                                            $100 - $199
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                    <article className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative">
-                        {isLoading && <Loader />}
-                        {shopItems}
-                    </article>
+            <Section className="my-20">
+                <DropdownBtn
+                    filterTypes={filterTypes}
+                    setSelectedFilter={setSelectedFilter}
+                />
+
+                <div className="relative grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    {isLoading && <Loader />}
+                    {shopItems}
                 </div>
             </Section>
         </>

@@ -19,125 +19,65 @@ const TermsOfUse = React.lazy(() => import("../Pages/TermsOfUse"));
 const routes = [
     {
         path: "/",
-        element: (
-            <Suspense fallback="Loading...">
-                <Homepage />
-            </Suspense>
-        ),
+        element: <Homepage />,
     },
     {
         path: "/products",
-        element: (
-            <Suspense fallback="Loading...">
-                <Products />
-            </Suspense>
-        ),
+        element: <Products />,
         children: [
             {
                 path: "/products/category/:category",
-                element: (
-                    <Suspense fallback="Loading...">
-                        <ProductCategories />
-                    </Suspense>
-                ),
+                element: <ProductCategories />,
             },
         ],
     },
     {
-        path: "/products/:category/:title/:id",
-        element: (
-            <Suspense fallback="Loading...">
-                <SingleProduct />
-            </Suspense>
-        ),
+        path: "/products/:id",
+        element: <SingleProduct />,
     },
     {
         path: "/aboutus",
-        element: (
-            <Suspense fallback="Loading...">
-                <AboutUs />
-            </Suspense>
-        ),
+        element: <AboutUs />,
     },
     {
         path: "/cart-checkout",
-        element: (
-            <Suspense fallback="Loading...">
-                <CartCheckout />
-            </Suspense>
-        ),
+        element: <CartCheckout />,
     },
     {
         path: "/cart-preview",
-        element: (
-            <Suspense fallback="Loading...">
-                <CartPreview />
-            </Suspense>
-        ),
+        element: <CartPreview />,
     },
     {
         path: "/careers",
-        element: (
-            <Suspense fallback="Loading...">
-                <Careers />
-            </Suspense>
-        ),
+        element: <Careers />,
     },
     {
         path: "/contactus",
-        element: (
-            <Suspense fallback="Loading...">
-                <ContactUs />
-            </Suspense>
-        ),
+        element: <ContactUs />,
     },
     {
         path: "/contactus-success",
-        element: (
-            <Suspense fallback="Loading...">
-                <ContactsSuccess />
-            </Suspense>
-        ),
+        element: <ContactsSuccess />,
     },
     {
         path: "/wishlist",
-        element: (
-            <Suspense fallback="Loading...">
-                <Wishlist />
-            </Suspense>
-        ),
+        element: <Wishlist />,
     },
     {
         path: "/returns",
-        element: (
-            <Suspense fallback="Loading...">
-                <Returns />
-            </Suspense>
-        ),
+        element: <Returns />,
     },
     {
         path: "/store-locator",
-        element: (
-            <Suspense fallback="Loading...">
-                <StoreLocator />
-            </Suspense>
-        ),
+        element: <StoreLocator />,
     },
     {
         path: "/FAQ",
-        element: (
-            <Suspense fallback="Loading...">
-                <FAQ />
-            </Suspense>
-        ),
+        element: <FAQ />,
     },
     {
         path: "/termsofuse",
-        element: (
-            <Suspense fallback="Loading...">
-                <TermsOfUse />
-            </Suspense>
-        ),
+        element: <TermsOfUse />,
     },
 ];
 

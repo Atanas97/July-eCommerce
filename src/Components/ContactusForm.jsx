@@ -11,8 +11,14 @@ const ContactusForm = () => {
     const { errors } = formState;
 
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID_CONTACTUS;
-    const { form, loading, emailSendError, username, userMessage, handleNewsletterSubmit } =
-        EmailSend(TEMPLATE_ID);
+    const {
+        form,
+        loading,
+        emailSendError,
+        username,
+        userMessage,
+        handleNewsletterSubmit,
+    } = EmailSend(TEMPLATE_ID);
 
     console.log(errors);
     const onSubmit = (data, e) => {
@@ -26,9 +32,13 @@ const ContactusForm = () => {
     };
 
     return (
-        <form className="mb-8 relative" ref={form} onSubmit={handleSubmit(onSubmit, onError)}>
+        <form
+            className="relative mb-8"
+            ref={form}
+            onSubmit={handleSubmit(onSubmit, onError)}
+        >
             {loading && <Loader />}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 ">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 ">
                 <div className="relative">
                     <input
                         {...register("user_name", {
@@ -42,9 +52,11 @@ const ContactusForm = () => {
                         name="user_name"
                         ref={username}
                         placeholder="Name *"
-                        className="border rounded-lg border-[#ccc] p-4 w-full font-light focus:border-orange outline-none user select-none  appearance-none"
+                        className="user w-full select-none appearance-none rounded-lg border border-[#ccc] p-4 font-light outline-none  focus:border-orange"
                     />
-                    {errors.user_name && <FormErrorMsg message={errors.user_name.message} />}
+                    {errors.user_name && (
+                        <FormErrorMsg message={errors.user_name.message} />
+                    )}
                 </div>
                 <div className="relative">
                     <input
@@ -57,21 +69,26 @@ const ContactusForm = () => {
                         })}
                         type="email"
                         placeholder="Email *"
-                        className="border rounded-lg border-[#ccc] p-4 w-full font-light focus:border-orange outline-none user select-none  appearance-none"
+                        className="user w-full select-none appearance-none rounded-lg border border-[#ccc] p-4 font-light outline-none  focus:border-orange"
                     />
-                    {errors.email && <FormErrorMsg message={errors.email.message} />}
+                    {errors.email && (
+                        <FormErrorMsg message={errors.email.message} />
+                    )}
                 </div>
                 <div className="relative">
                     <input
                         {...register("phone", {
                             minLength: 3,
-                            pattern: /(\+)?(359|0)8[789]\d{1}(|-| )\d{3}(|-| )\d{3}/,
+                            pattern:
+                                /(\+)?(359|0)8[789]\d{1}(|-| )\d{3}(|-| )\d{3}/,
                         })}
                         type="text"
                         placeholder="Phone number"
-                        className="border rounded-lg border-[#ccc] p-4 w-full font-light focus:border-orange outline-none user select-none  appearance-none"
+                        className="user w-full select-none appearance-none rounded-lg border border-[#ccc] p-4 font-light outline-none  focus:border-orange"
                     />
-                    {errors.phone && <FormErrorMsg message="Please enter a valid phone number." />}
+                    {errors.phone && (
+                        <FormErrorMsg message="Please enter a valid phone number." />
+                    )}
                 </div>
                 <div className="relative">
                     <input
@@ -80,9 +97,11 @@ const ContactusForm = () => {
                         })}
                         type="text"
                         placeholder="Website"
-                        className="border rounded-lg border-[#ccc] p-4 w-full font-light focus:border-orange outline-none user select-none  appearance-none"
+                        className="user w-full select-none appearance-none rounded-lg border border-[#ccc] p-4 font-light outline-none  focus:border-orange"
                     />
-                    {errors.website && <FormErrorMsg message="Please enter a valid website." />}
+                    {errors.website && (
+                        <FormErrorMsg message="Please enter a valid website." />
+                    )}
                 </div>
             </div>
             <div className="relative">
@@ -95,7 +114,7 @@ const ContactusForm = () => {
                     name="message"
                     placeholder="Message"
                     ref={userMessage}
-                    className="border rounded-lg border-[#ccc] p-4 w-full font-light focus:border-orange outline-none user select-none  appearance-none mt-10"
+                    className="user mt-10 w-full select-none appearance-none rounded-lg border border-[#ccc] p-4 font-light  outline-none focus:border-orange"
                 ></textarea>
                 {errors.textarea && (
                     <FormErrorMsg message="Please leave us a well rounded message!" />
@@ -103,7 +122,7 @@ const ContactusForm = () => {
             </div>
             <button
                 type="submit"
-                className="block mx-auto mt-10 border-lg rounded-lg bg-black text-white py-6 px-20 transition duration-500 hover:opacity-90"
+                className="border-lg mx-auto mt-10 block rounded-lg bg-black px-20 py-6 text-white transition duration-500 hover:opacity-90"
             >
                 Post Message
             </button>

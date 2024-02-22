@@ -36,15 +36,15 @@ const NewsletterPopup = () => {
         <>
             <Overlays
                 isOpened={isModalOpened}
-                // isPopUpChecked={closePopUp}
                 onClose={() => rememberPopupChoice()}
             >
                 {loading && <Loader />}
-                <div className="relative bg-newsletterBgImage bg-cover text-center max-w-[60rem]">
+                <div className="relative max-w-[60rem] bg-newsletterBgImage bg-cover text-center">
                     <div className="px-[3rem] py-[4rem] md:px-[10rem] md:py-[12rem]">
                         <h2 className="text-5xl text-white">Don't miss out!</h2>
-                        <p className="font-normal text-white py-8">
-                            Sign up for our newsletter to receive special offers, news, and events
+                        <p className="py-8 font-normal text-white">
+                            Sign up for our newsletter to receive special
+                            offers, news, and events
                         </p>
                         <form ref={form} onSubmit={handleNewsletterSubmit}>
                             <div className="relative w-full">
@@ -57,16 +57,20 @@ const NewsletterPopup = () => {
                                 <button
                                     disabled={loading}
                                     type="submit"
-                                    className={`absolute top-2/4 -translate-y-2/4 right-5 cursor-pointer ${
-                                        loading && "opacity-10 cursor-not-allowed"
+                                    className={`absolute right-5 top-2/4 -translate-y-2/4 cursor-pointer ${
+                                        loading &&
+                                        "cursor-not-allowed opacity-10"
                                     }`}
                                 >
                                     Subscribe
                                 </button>
                             </div>
-                            <div className="text-left text-white mt-4 font-normal">
+                            <div className="mt-4 text-left font-normal text-white">
                                 <label className="checkbox">
-                                    <input type="checkbox" ref={popUpCheckbox} />
+                                    <input
+                                        type="checkbox"
+                                        ref={popUpCheckbox}
+                                    />
                                     <span></span>
                                     Don't show this pop up again
                                 </label>

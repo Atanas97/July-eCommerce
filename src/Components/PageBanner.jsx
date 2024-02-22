@@ -8,11 +8,11 @@ const PageBanner = ({ title, bgImage, children, bannerTextColor }) => {
                     src={bgImage}
                     alt={title}
                     loading="lazy"
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                 />
             </picture>
             <Section
-                customClasses={`absolute inset-0 flex justify-center flex-col ${bannerTextColor}`}
+                className={`absolute inset-0 flex flex-col justify-center ${bannerTextColor}`}
             >
                 <h2 className="text-h2 text-inherit">{title}</h2>
                 {children}

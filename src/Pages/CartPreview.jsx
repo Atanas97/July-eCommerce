@@ -84,7 +84,7 @@ const CartPreview = () => {
                                 <p className="text-h3 font-medium">{deliveryInfo.businessName}</p>
                             </div>
                         </div>
-                        <div className="mt-10 border-b">
+                        <div className="mt-10 border-b pb-10">
                             <small className="text-2xl text-gray-400">Message</small>
                             <p className="text-h3 font-medium">{deliveryInfo.message}</p>
                         </div>

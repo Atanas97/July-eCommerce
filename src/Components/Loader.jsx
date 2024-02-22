@@ -2,7 +2,7 @@ import React from "react";
 
 const Loader = () => {
     return (
-        <div className="flex justify-center items-center absolute inset-0 z-10 bg-[#1111116b]">
+        <div className="absolute inset-0 z-10 flex items-center justify-center bg-[#1111116b]">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 200 200"

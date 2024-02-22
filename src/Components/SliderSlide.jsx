@@ -16,7 +16,7 @@ const SliderSlide = ({ data }) => {
                     loading="lazy"
                 />
             </picture>
-            <Section customClasses="absolute inset-0 flex items-center">
+            <Section className="absolute inset-0 flex items-center">
                 <div className="flex flex-col gap-9">
                     <h4 className="text-h4">{subheader}</h4>
                     <h1 className="text-h1">{heading}</h1>
@@ -24,7 +24,7 @@ const SliderSlide = ({ data }) => {
                     <Link
                         to="/products"
                         state={{ baseUrl: urlstate }}
-                        className="bg-black rounded-md px-16 py-5 text-white self-start transition duration-200 hover:opacity-90"
+                        className="self-start rounded-md bg-black px-16 py-5 text-white transition duration-200 hover:opacity-90"
                     >
                         {button}
                     </Link>

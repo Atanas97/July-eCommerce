@@ -1,13 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = {
-    black: "#101415",
+    black: "rgb(16, 20, 21)",
     white: "#ffffff",
-    orange: "#ffcb74",
+    orange: "#c8815f",
     customRed: "#f84c5d",
     mainGray: "#555555",
     lgray: "#999999",
 };
+
+// const black = "rgb(16, 20, 21)";
+// const white = "#ffffff";
+// const orange = "#c8815f";
+// const customRed = "#f84c5d";
+// const mainGray = "#555555";
+// const lgray = "#999999";
 
 const fontSize = {
     h1: [
@@ -63,6 +70,9 @@ export default {
                 newsletterBgImage: "url('/src/Assets/newsletter_popup_bg.jpg')",
             },
             colors: colors,
+            // colors: {
+            //     customBlack: black,
+            // },
             fontSize: fontSize,
             animation: {
                 "infinite-scroll": "infinite-scroll 25s linear infinite",

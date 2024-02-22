@@ -8,12 +8,20 @@ const EmptyCartSlide = () => {
     const { setIsCartSlideOpen } = useContext(CartContext);
 
     return (
-        <div className="text-center p-8 rounded-xl bg-neutral-100">
-            <p className="text-p mb-4">Your cart is empty.</p>
-            <Link to="/wishlist" className="underline" onClick={() => setIsCartSlideOpen(false)}>
+        <div className="rounded-xl bg-neutral-100 p-8 text-center">
+            <p className="mb-4 text-p">Your cart is empty.</p>
+            <Link
+                to="/wishlist"
+                className="underline"
+                onClick={() => setIsCartSlideOpen(false)}
+            >
                 Add from wishlist
             </Link>
-            <img className="block mt-8 pb-5" src={EmptyCartIcon} alt="July empty cart state" />
+            <img
+                className="mt-8 block pb-5"
+                src={EmptyCartIcon}
+                alt="July empty cart state"
+            />
         </div>
     );
 };

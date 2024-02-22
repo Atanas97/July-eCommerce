@@ -5,7 +5,7 @@ import Section from "./Section";
 
 const CategoriesSection = ({ title }) => {
     const { apiData, isLoading, serverError } = useFetchApi(
-        `https://fakestoreapi.com/products/categories`
+        `https://fakestoreapi.com/products/categories`,
     );
 
     const MappedCategories = apiData.map((item) => (
@@ -16,7 +16,7 @@ const CategoriesSection = ({ title }) => {
         <Section>
             <div>
                 <h2 className="mt-[6rem] text-5xl">{title}</h2>
-                <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {isLoading ? <Loader /> : MappedCategories}
                 </div>
             </div>

@@ -46,7 +46,7 @@ export default () => {
             slidesPerView={1}
             loop
             autoplay={{
-                delay: 5000,
+                delay: 8000,
                 disableOnInteraction: false,
             }}
             className="h-dvh"

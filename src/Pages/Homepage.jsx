@@ -1,8 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Toaster } from "react-hot-toast";
 
-import BestSellers from "../Components/BestSellers/BestSellers";
+import BestSellers from "../Components/BestSellers";
 import NewsletterPopup from "../Layout/NewsletterPopup";
 import NewsletterSection from "../Components/NewsletterSection";
 import LimitedOffer from "../Components/LimitedOffer";
@@ -34,11 +33,11 @@ const Homepage = () => {
             <NewsletterPopup />
             <Slider />
             <BestSellers title="Best Sellers" />
-            <LimitedOffer />
+
             {/* <CartSlide /> */}
             <Testimonials />
             <InfiniteScrollAnimation />
-            <Toaster />
+            <LimitedOffer />
             <NewsletterSection
                 title="NEWSLETTER"
                 message="Sign up and get up to 20% off your first purchase"

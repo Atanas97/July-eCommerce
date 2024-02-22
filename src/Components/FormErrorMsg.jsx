@@ -1,10 +1,10 @@
 const FormErrorMsg = ({ message }) => {
     return (
-        <div className="absolute z-40 mt-3 top-full left-0 text-white">
+        <div className="absolute left-0 top-full z-40 mt-3 text-white">
             <p
-                className="text-p px-8 py-4 bg-red-700 rounded-md relative after:absolute 
-            after:content-[''] z-30 after:-top-3 after:left-3 after:border-solid after:border-b-red-700 after:border-b-8 
-            after:border-x-transparent after:border-x-[1rem] after:border-t-0"
+                className="relative z-30 rounded-md bg-red-700 px-8 py-4 text-p 
+            after:absolute after:-top-3 after:left-3 after:border-x-[1rem] after:border-b-8 after:border-t-0 after:border-solid 
+            after:border-x-transparent after:border-b-red-700 after:content-['']"
             >
                 {message}
             </p>

@@ -6,13 +6,19 @@ const CartCheckoutItem = ({ item }) => {
     const { removeCartItem } = useContext(CartContext);
     const { id, title, image, amount, price } = item;
     return (
-        <div className="relative lg:flex justify-start items-start gap-8 border-b border-[#ccc] py-8">
-            <div className="flex gap-8 items-start mb-8">
-                <picture className="flex-none w-[6rem] h-[6rem] lg:w-[10rem] lg:h-[10rem]">
-                    <img src={image} alt={title} className="w-full h-full object-contain" />
+        <div className="relative items-start justify-start gap-8 border-b border-[#ccc] py-8 lg:flex">
+            <div className="mb-8 flex items-start gap-8">
+                <picture className="h-[6rem] w-[6rem] flex-none lg:h-[10rem] lg:w-[10rem]">
+                    <img
+                        src={image}
+                        alt={title}
+                        className="h-full w-full object-contain"
+                    />
                 </picture>
                 <div className="lg:w-[45rem]">
-                    <h3 className="text-balance text-h4 font-normal pr-8">{title}</h3>
+                    <h3 className="text-balance pr-8 text-h4 font-normal">
+                        {title}
+                    </h3>
                 </div>
             </div>
             <div className="inline-block w-1/3 text-left">
@@ -29,7 +35,7 @@ const CartCheckoutItem = ({ item }) => {
             </div>
             <button
                 onClick={() => removeCartItem(id)}
-                className="absolute top-8 right-0 w-[initial] lg:static lg:self-center"
+                className="absolute right-0 top-8 w-[initial] lg:static lg:self-center"
             >
                 <FiX size={24} />
             </button>

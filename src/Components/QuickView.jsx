@@ -15,7 +15,7 @@ const QuickView = ({ id, isOpened, onClose }) => {
     // }
 
     const { apiData, isLoading, serverError } = useFetchApi(
-        `https://fakestoreapi.com/products/${id}`
+        `https://fakestoreapi.com/products/${id}`,
     );
 
     const { title, image, price, description } = apiData;
@@ -23,7 +23,7 @@ const QuickView = ({ id, isOpened, onClose }) => {
     return (
         <>
             <Overlays isOpened={isOpened} onClose={onClose}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[50rem] bg-white max-w-screen-lg p-8">
+                <div className="grid min-h-[50rem] max-w-screen-lg grid-cols-1 gap-8 bg-white p-8 md:grid-cols-2">
                     {isLoading ? (
                         <Loader />
                     ) : (
@@ -39,20 +39,20 @@ const QuickView = ({ id, isOpened, onClose }) => {
                             </div>
                             <div className="flex flex-col">
                                 <h2 className="text-h2">{title}</h2>
-                                <span className="text-h1 my-10 block">
+                                <span className="my-10 block text-h1">
                                     {price}
                                 </span>
-                                <p className="text-p mb-10">{description}</p>
+                                <p className="mb-10 text-p">{description}</p>
 
                                 <div className="mt-auto">
-                                    <p className="flex items-center gap-2 text-p mb-3">
+                                    <p className="mb-3 flex items-center gap-2 text-p">
                                         <LuShip size={28} />
                                         Free shipping over
                                         <span className="font-medium">
                                             $300
                                         </span>
                                     </p>
-                                    <p className="flex items-center flex-wrap gap-2 text-p">
+                                    <p className="flex flex-wrap items-center gap-2 text-p">
                                         <LuPackageCheck size={28} />
                                         Delivers in:
                                         <span className="font-medium">

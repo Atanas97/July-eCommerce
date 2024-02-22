@@ -8,8 +8,8 @@ const CategoriesSectionItem = ({ data }) => {
                     src="https://www.w3schools.com/tags/pic_trulli.jpg"
                     alt="Trulli"
                 />
-                <figcaption className="text-center pt-8">
-                    <button className="bg-white rounded-2xl py-4 px-8 transition ease-in-out duration-300 hover:ease-in hover:bg-slate-500">
+                <figcaption className="pt-8 text-center">
+                    <button className="rounded-2xl bg-white px-8 py-4 transition duration-300 ease-in-out hover:bg-slate-500 hover:ease-in">
                         {data}
                     </button>
                 </figcaption>

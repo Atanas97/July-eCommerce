@@ -39,8 +39,8 @@ const AboutUs = () => {
                 bgImage={Banner}
             />
 
-            <Section customClasses="my-30 ">
-                <div className="max-w-[80rem] mx-auto">
+            <Section className="my-30 ">
+                <div className="mx-auto max-w-[80rem]">
                     <div className="my-20">
                         <h3>Focusing on Quality Material, Good Design</h3>
                         <p>
@@ -52,7 +52,7 @@ const AboutUs = () => {
                             diam sollicitudin, id lobortis tellus tincidunt.
                         </p>
                     </div>
-                    <div className="grid gap-8 grid-cols-1 sm:grid-cols-2">
+                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
                         <picture>
                             <img
                                 src={AboutUs1}

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 
 const useFetchApi = (url) => {
-    const BASE_URL = `https://fakestoreapi.com/products/`;
-
     const [apiData, setApiData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [serverError, setServerError] = useState(null);
@@ -19,7 +17,7 @@ const useFetchApi = (url) => {
                 //     throw new Error ('Failed to fetch data!')
                 // }
 
-                setApiData(...apiData, FETCHED_DATA);
+                setApiData(FETCHED_DATA);
                 setIsLoading(false);
             } catch (error) {
                 setServerError(error);

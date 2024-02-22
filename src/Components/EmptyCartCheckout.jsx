@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 
 const EmptyCartCheckout = ({ title, text, image }) => {
     return (
-        <div className="text-center w-full max-w-5xl mx-auto">
+        <div className="mx-auto w-full max-w-5xl text-center">
             <h2 className="text-h2 font-medium">{title}</h2>
-            <p className="text-p my-8">{text}</p>
-            <div className="flex flex-wrap justify-center items-center gap-8">
+            <p className="my-8 text-p">{text}</p>
+            <div className="flex flex-wrap items-center justify-center gap-8">
                 <Link
                     to="/products"
                     state={{ baseUrl: "/" }}
-                    className="inline-block flex-1 whitespace-nowrap px-12 py-4 bg-black rounded-lg text-white"
+                    className="inline-block flex-1 whitespace-nowrap rounded-lg bg-black px-12 py-4 text-white"
                 >
                     Continue to our Shop
                 </Link>
                 <Link
                     to="/"
-                    className="inline-block flex-1 whitespace-nowrap px-12 py-4 border bg-white rounded-lg"
+                    className="inline-block flex-1 whitespace-nowrap rounded-lg border bg-white px-12 py-4"
                 >
                     Visit our Homepage
                 </Link>
